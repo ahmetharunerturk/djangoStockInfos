@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hissee Senedi Bilgi Sorgulama</title>
+</head>
+<body>
+    <h1>Hissee Senedi Bilgi Sorgulama</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="ticker_symbol">Hisse Senedi Simgesi:</label>
+        <input type="text" id="ticker_symbol" name="ticker_symbol" required>
+        <button type="submit">Sorgula</button>
+    </form>
+</body>
+</html>

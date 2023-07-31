@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hisse Senedi Bilgileri</title>
+</head>
+<body>
+    <h1>{{ stock_name }} ({{ stock_symbol }})</h1>
+    <p><strong>Ülke:</strong> {{ stock_country }}</p>
+    <p><strong>Sektör:</strong> {{ stock_industry }}</p>
+
+    <h2>Genel Bilgiler</h2>
+    {% if info.regularMarketPrice is not None %}
+    <p><strong>Son Fiyat:</strong> {{ info.regularMarketPrice }}</p>
+    {% else %}
+    <p>Son Fiyat bilgisi mevcut değil.</p>
+    {% endif %}
+
+    {% if info.regularMarketChange is not None %}
+    <p><strong>Günlük Değişim:</strong> {{ info.regularMarketChange }}</p>
+    {% else %}
+    <p>Günlük Değişim bilgisi mevcut değil.</p>
+    {% endif %}
+
+    {% if info.regularMarketChangePercent is not None %}
+    <p><strong>Günlük Değişim Yüzdesi:</strong> {{ info.regularMarketChangePercent }}%</p>
+    {% else %}
+    <p>Günlük Değişim Yüzdesi bilgisi mevcut değil.</p>
+    {% endif %}
+
+    <p><strong>52 Hafta En Yüksek Fiyat:</strong> {{ info.fiftyTwoWeekHigh }}</p>
+    <p><strong>52 Hafta En Düşük Fiyat:</strong> {{ info.fiftyTwoWeekLow }}</p>
+    <p><strong>Ortalama Hacim:</strong> {{ info.averageVolume }}</p>
+    <p><strong>Son Kapanış Fiyatı:</strong> {{ info.regularMarketPreviousClose }}</p>
+    <p><strong>Günlük İşlem Hacmi:</strong> {{ info.regularMarketVolume }}</p>
+    <p><strong>Şirket Adı:</strong> {{ info.longName }}</p>
+    <p><strong>Şirket Sektörü:</strong> {{ info.industry }}</p>
+    <p><strong>Şirket Websitesi:</strong> <a href="{{ info.website }}">{{ info.website }}</a></p>
+    <p><strong>Şirket Çalışan Sayısı:</strong> {{ info.fullTimeEmployees }}</p>
+    <p><strong>Şirket Piyasa Değeri:</strong> {{ info.marketCap }}</p>
+    <p><strong>Şirket Karı:</strong> {{ info.profitMargins }}</p>
+
+    {% if last_dividend %}
+    <h2>Son Temettü Miktarı</h2>
+    <p>{{ last_dividend }}</p>
+    {% else %}
+    <p>Temettü bilgisi bulunmamaktadır.</p>
+    {% endif %}
+</body>
+</html>
